@@ -48,7 +48,7 @@ def student_finder(student_roll: int) -> str:
 
 # Step 4: Agent
 agent = Agent(
-    instructions="You are a Programming Expert you can solve any error in any language and you're a good teacher and you can help with any task.",
+    instructions="You are a helpful assistant that can answer questions and help with tasks.",
     name="Support Agent",
     tools=[get_weather, student_finder],  # add tools here
     model=model,
@@ -58,7 +58,7 @@ agent = Agent(
 @cl.on_chat_start
 async def handle_chat_start():
     cl.user_session.set("history", [])
-    await cl.Message(content="Hello I'm Basit Ali a programmer , how can I help you today?").send()
+    await cl.Message(content="Hello, how can I help you today?").send()
 
 
 @cl.on_message
